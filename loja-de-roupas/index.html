@@ -1,161 +1,407 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RM Modas | Estilo e Elegância</title>
+  <meta name="description" content="Moda feminina e masculina com estilo, qualidade e atendimento direto pelo WhatsApp.">
+  <style>
+    :root{
+      --bg:#0f0f12;
+      --bg-soft:#18181d;
+      --card:#1d1d24;
+      --line:rgba(255,255,255,.08);
+      --text:#ffffff;
+      --muted:#b2b2bf;
+      --primary:#ff4d6d;
+      --primary-2:#ff8fa3;
+      --radius:22px;
+      --max:1200px;
+      --shadow:0 22px 50px rgba(0,0,0,.35);
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg, #0e0e12, #09090b);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-<title>RM Modas | Coleção Premium</title>
+    a{text-decoration:none;color:inherit}
+    .container{width:min(92%,var(--max));margin:0 auto}
+    img{max-width:100%;display:block}
 
-<link rel="stylesheet" href="css/style.css">
+    .header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(15,15,18,.78);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
 
+    .logo{
+      font-size:1.35rem;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+    .logo span{color:var(--primary)}
+
+    .menu{display:flex;gap:22px;align-items:center}
+    .menu a{color:var(--muted);font-weight:600}
+    .menu a:hover{color:#fff}
+
+    .btn{
+      padding:14px 22px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      transition:.3s ease;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#22040c;
+      box-shadow:0 12px 30px rgba(255,77,109,.28);
+    }
+
+    .hero{
+      padding:90px 0 70px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:clamp(2.4rem,5vw,4.8rem);
+      line-height:1.02;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.05rem;
+      margin-bottom:28px;
+      max-width:620px;
+    }
+
+    .hero-image{
+      min-height:500px;
+      border-radius:30px;
+      background:
+        linear-gradient(rgba(14,14,18,.2), rgba(14,14,18,.55)),
+        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80') center/cover;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    section{padding:80px 0}
+    .section-title{
+      font-size:clamp(1.8rem,3vw,3rem);
+      margin-bottom:10px;
+    }
+    .section-subtitle{
+      color:var(--muted);
+      margin-bottom:30px;
+      max-width:700px;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .feature,.product,.cta,.about-box{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .feature{
+      padding:24px;
+    }
+
+    .feature h3{margin-bottom:10px}
+    .feature p{color:var(--muted)}
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .product-image{
+      height:290px;
+      border-top-left-radius:22px;
+      border-top-right-radius:22px;
+      background-size:cover;
+      background-position:center;
+    }
+
+    .product-content{
+      padding:20px;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(255,77,109,.12);
+      color:#ff9aae;
+      font-size:.88rem;
+      margin-bottom:10px;
+    }
+
+    .price{
+      margin:10px 0 16px;
+      font-size:1.25rem;
+      font-weight:800;
+      color:#fff;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .about-photo{
+      min-height:420px;
+      border-radius:26px;
+      background:
+        linear-gradient(rgba(10,10,14,.25), rgba(10,10,14,.55)),
+        url('https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=80') center/cover;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .about-box{
+      padding:28px;
+    }
+
+    .about-box ul{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+      list-style:none;
+    }
+
+    .about-box li{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      padding:14px 16px;
+      border-radius:16px;
+      color:#e8e8ef;
+    }
+
+    .cta{
+      padding:34px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      background:linear-gradient(135deg, rgba(255,77,109,.12), rgba(255,143,163,.06));
+    }
+
+    .footer{
+      padding:26px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+
+    .whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:64px;height:64px;border-radius:50%;
+      background:#25D366;color:#fff;
+      display:grid;place-items:center;
+      font-size:28px;font-weight:700;
+      box-shadow:0 16px 35px rgba(37,211,102,.35);
+      z-index:999;
+    }
+
+    .mobile-toggle{
+      display:none;
+      background:none;border:none;color:#fff;
+      font-size:1.8rem;cursor:pointer;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,.about,.features,.products{grid-template-columns:1fr}
+      .hero-image{min-height:360px}
+    }
+
+    @media (max-width: 768px){
+      .mobile-toggle{display:block}
+      .menu{
+        display:none;
+        position:absolute;
+        top:78px;left:0;right:0;
+        padding:20px;
+        flex-direction:column;
+        align-items:flex-start;
+        background:#14141a;
+        border-bottom:1px solid var(--line);
+      }
+      .menu.active{display:flex}
+    }
+  </style>
 </head>
-
 <body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">RM <span>Modas</span></a>
+      <button class="mobile-toggle" id="mobileToggle">☰</button>
+      <nav class="menu" id="menu">
+        <a href="#colecao">Coleção</a>
+        <a href="#destaques">Destaques</a>
+        <a href="#sobre">Sobre</a>
+        <a href="https://wa.me/5541992274453" class="btn btn-primary">Comprar pelo WhatsApp</a>
+      </nav>
+    </div>
+  </header>
 
-<header id="header">
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Moda moderna para quem quer se destacar com estilo</h1>
+          <p>
+            Modelo premium ideal para lojas de roupas, boutiques e marcas locais.
+            Estrutura pronta para apresentar coleções e vender diretamente pelo WhatsApp.
+          </p>
+          <a href="https://wa.me/5541992274453" class="btn btn-primary">Solicitar catálogo</a>
+        </div>
+        <div class="hero-image"></div>
+      </div>
+    </section>
 
-<div class="logo">RM MODAS</div>
+    <section id="destaques">
+      <div class="container">
+        <h2 class="section-title">Diferenciais da marca</h2>
+        <p class="section-subtitle">Use essa seção para valorizar a loja e gerar desejo no cliente.</p>
 
-<nav>
+        <div class="features">
+          <article class="feature">
+            <h3>Peças selecionadas</h3>
+            <p>Produtos com qualidade, caimento e estilo para diferentes ocasiões.</p>
+          </article>
+          <article class="feature">
+            <h3>Atendimento personalizado</h3>
+            <p>Venda direta pelo WhatsApp com suporte rápido e humanizado.</p>
+          </article>
+          <article class="feature">
+            <h3>Tendências da estação</h3>
+            <p>Loja sempre atualizada com peças modernas e elegantes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<a href="#">Início</a>
-<a href="#colecao">Coleções</a>
-<a href="#produtos">Produtos</a>
-<a href="#contato">Contato</a>
+    <section id="colecao">
+      <div class="container">
+        <h2 class="section-title">Coleção em destaque</h2>
+        <p class="section-subtitle">Troque as imagens e os nomes pelas peças do seu cliente.</p>
 
-</nav>
+        <div class="products">
+          <article class="product">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="product-content">
+              <span class="tag">Novidade</span>
+              <h3>Jaqueta Premium</h3>
+              <p>Visual moderno e acabamento de alta qualidade.</p>
+              <div class="price">R$ 189,90</div>
+              <a href="https://wa.me/5541992274453" class="btn btn-primary">Pedir no WhatsApp</a>
+            </div>
+          </article>
 
-</header>
+          <article class="product">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="product-content">
+              <span class="tag">Mais vendido</span>
+              <h3>Vestido Elegance</h3>
+              <p>Peça leve, sofisticada e perfeita para várias ocasiões.</p>
+              <div class="price">R$ 159,90</div>
+              <a href="https://wa.me/5541992274453" class="btn btn-primary">Pedir no WhatsApp</a>
+            </div>
+          </article>
 
-<section class="hero">
+          <article class="product">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="product-content">
+              <span class="tag">Tendência</span>
+              <h3>Conjunto Urbano</h3>
+              <p>Estilo contemporâneo para um visual marcante.</p>
+              <div class="price">R$ 219,90</div>
+              <a href="https://wa.me/5541992274453" class="btn btn-primary">Pedir no WhatsApp</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="hero-content">
+    <section id="sobre">
+      <div class="container about">
+        <div class="about-photo"></div>
+        <div class="about-box">
+          <h2 class="section-title">Uma loja com identidade forte</h2>
+          <p class="section-subtitle">
+            Esse site foi pensado para lojas que precisam transmitir estilo, confiança e modernidade.
+          </p>
+          <ul>
+            <li>✅ Design premium e elegante</li>
+            <li>✅ Catálogo visual de produtos</li>
+            <li>✅ Botões diretos para o WhatsApp</li>
+            <li>✅ Estrutura perfeita para vender mais</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<h1>Nova Coleção 2026</h1>
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2 class="section-title" style="margin-bottom:8px">Sua loja merece um site assim</h2>
+            <p class="section-subtitle" style="margin:0">Visual premium, organização profissional e foco em conversão.</p>
+          </div>
+          <a href="https://wa.me/5541992274453" class="btn btn-primary">Falar com a loja</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<p>Moda que define tendências.</p>
+  <footer class="footer">
+    <div class="container">© 2026 RM Modas - Todos os direitos reservados.</div>
+  </footer>
 
-<a href="#produtos" class="btn">Explorar</a>
+  <a class="whatsapp" href="https://wa.me/5541992274453">✆</a>
 
-</div>
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('menu');
 
-</section>
-
-
-<section class="colecao" id="colecao">
-
-<h2>Coleção Destaque</h2>
-
-<div class="colecao-grid">
-
-<div class="colecao-card">
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b">
-<h3>Elegância Feminina</h3>
-</div>
-
-<div class="colecao-card">
-<img src="img/moda-masc.jpg">
-<h3>Moda Masculina</h3>
-</div>
-
-<div class="colecao-card">
-<img src="img/acessorios.png">
-<h3>Acessórios</h3>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="produtos" id="produtos">
-
-<h2>Nossos Produtos</h2>
-
-<div class="filtros">
-
-<button data-filter="all">Todos</button>
-<button data-filter="feminino">Feminino</button>
-<button data-filter="masculino">Masculino</button>
-<button data-filter="relogio">Relógios</button>
-
-</div>
-
-<div class="galeria">
-
-<div class="item feminino">
-<img src="img/vestido.jpg">
-<div class="info">
-<h3>Vestido Premium</h3>
-<p>R$129</p>
-</div>
-</div>
-
-<div class="item masculino">
-<img src="img/camiseta.jpg">
-<div class="info">
-<h3>Camiseta Premium</h3>
-<p>R$99</p>
-</div>
-</div>
-
-<div class="item relogio">
-<img src="img/relogio.jpg">
-<div class="info">
-<h3>Relógio Luxo</h3>
-<p>R$349</p>
-</div>
-</div>
-
-<div class="item feminino">
-<img src="img/blusa.jpg">
-<div class="info">
-<h3>Blusa Fashion</h3>
-<p>R$79</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<section class="mapa">
-
-<h2>Nosso Endereço</h2>
-
-<iframe 
-src="https://www.google.com/maps?q=Balneario%20Praia%20do%20Leste%20PR&output=embed"
-width="100%" 
-height="400" 
-style="border:0;" 
-allowfullscreen="" 
-loading="lazy">
-</iframe>
-
-</section>
-
-
-<footer id="contato">
-
-<h3>RM Modas</h3>
-
-<p>Moda moderna e exclusiva.</p>
-
-</footer>
-
-
-<a href="https://wa.me/5541992274453" class="whatsapp" target="_blank">
-
-<i class="fab fa-whatsapp"></i>
-
-</a>
-
-<script src="js/script.js"></script>
-
+    mobileToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>

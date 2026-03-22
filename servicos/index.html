@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RM Clima Pro | Serviços Técnicos</title>
+  <meta name="description" content="Empresa especializada em instalação, manutenção e assistência técnica com atendimento rápido e profissional." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg-2:#11182d;
+      --card:#151f38;
+      --line:rgba(255,255,255,.08);
+      --text:#f4f7fb;
+      --muted:#a8b3c7;
+      --primary:#18c2ff;
+      --primary-2:#4de2c5;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:22px;
+      --max:1200px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,var(--bg),#070b16);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(92%, var(--max));margin:0 auto}
+
+    .header{
+      position:sticky;top:0;z-index:1000;
+      backdrop-filter:blur(14px);
+      background:rgba(11,16,32,.75);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      min-height:78px;
+    }
+
+    .logo{
+      font-size:1.35rem;font-weight:800;letter-spacing:.5px;
+    }
+
+    .logo span{color:var(--primary)}
+
+    .menu{
+      display:flex;gap:22px;align-items:center;
+    }
+
+    .menu a{
+      color:var(--muted);
+      transition:.25s;
+      font-weight:600;
+    }
+
+    .menu a:hover{color:#fff}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 22px;border-radius:999px;font-weight:700;
+      transition:.3s ease;border:1px solid transparent;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:#03111a;
+      box-shadow:0 10px 30px rgba(24,194,255,.25);
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+
+    .btn-outline{
+      border-color:var(--line);
+      color:#fff;
+      background:rgba(255,255,255,.03);
+    }
+
+    .hero{
+      padding:90px 0 60px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 14px;
+      border:1px solid rgba(24,194,255,.25);
+      background:rgba(24,194,255,.08);
+      color:#b8efff;
+      border-radius:999px;
+      font-size:.92rem;
+      margin-bottom:18px;
+    }
+
+    .hero h1{
+      font-size:clamp(2.3rem, 5vw, 4.6rem);
+      line-height:1.05;
+      margin-bottom:18px;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.08rem;
+      max-width:640px;
+      margin-bottom:28px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .stat{
+      padding:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:18px;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:1.35rem;
+      color:#fff;
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      width:220px;height:220px;
+      background:radial-gradient(circle, rgba(24,194,255,.25), transparent 65%);
+      top:-50px;right:-50px;
+    }
+
+    .hero-image{
+      height:420px;
+      border-radius:22px;
+      background:
+        linear-gradient(rgba(6,14,29,.45), rgba(6,14,29,.7)),
+        url('https://images.unsplash.com/photo-1581092919535-7146ff1a5902?auto=format&fit=crop&w=1200&q=80') center/cover;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    section{padding:80px 0}
+    .section-title{
+      font-size:clamp(1.8rem,3vw,3rem);
+      margin-bottom:12px;
+    }
+    .section-subtitle{
+      color:var(--muted);
+      max-width:700px;
+      margin-bottom:32px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:26px;
+      transition:.3s;
+      box-shadow:var(--shadow);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(24,194,255,.25);
+    }
+
+    .icon{
+      width:54px;height:54px;border-radius:16px;
+      display:grid;place-items:center;
+      font-size:1.4rem;font-weight:800;
+      background:linear-gradient(135deg, rgba(24,194,255,.16), rgba(77,226,197,.16));
+      color:#c9f7ff;
+      margin-bottom:16px;
+    }
+
+    .card h3{margin-bottom:10px}
+    .card p{color:var(--muted)}
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .about-image{
+      min-height:420px;
+      border-radius:26px;
+      background:
+        linear-gradient(rgba(7,11,22,.35), rgba(7,11,22,.55)),
+        url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80') center/cover;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .list{
+      display:grid;
+      gap:14px;
+      margin-top:20px;
+    }
+
+    .list li{
+      list-style:none;
+      padding:16px 18px;
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      color:#dce5f1;
+    }
+
+    .cta{
+      background:linear-gradient(135deg, rgba(24,194,255,.14), rgba(77,226,197,.08));
+      border:1px solid rgba(24,194,255,.18);
+      border-radius:32px;
+      padding:36px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .map{
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      min-height:350px;
+      box-shadow:var(--shadow);
+    }
+
+    .footer{
+      padding:28px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+
+    .whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:64px;height:64px;
+      border-radius:50%;
+      background:#25D366;
+      display:grid;place-items:center;
+      box-shadow:0 15px 35px rgba(37,211,102,.35);
+      z-index:999;
+      font-size:28px;
+      color:#fff;
+      font-weight:700;
+    }
+
+    .mobile-toggle{
+      display:none;
+      background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,.about-grid,.cards{grid-template-columns:1fr}
+      .hero-image{height:340px}
+    }
+
+    @media (max-width: 768px){
+      .mobile-toggle{display:block}
+      .menu{
+        display:none;
+        position:absolute;
+        top:78px;left:0;right:0;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        background:#0d1427;
+        border-bottom:1px solid var(--line);
+      }
+      .menu.active{display:flex}
+      .hero-stats{grid-template-columns:1fr}
+      .cta{padding:26px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">RM <span>ClimaPro</span></a>
+      <button class="mobile-toggle" id="mobileToggle">☰</button>
+      <nav class="menu" id="menu">
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#localizacao">Localização</a>
+        <a href="https://wa.me/5541992274453" class="btn btn-primary">Solicitar Orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">Atendimento rápido e profissional</span>
+          <h1>Instalação, manutenção e assistência técnica com padrão profissional</h1>
+          <p>
+            Site modelo ideal para empresas de climatização, elétrica, manutenção e serviços técnicos.
+            Estrutura pronta para gerar contatos no WhatsApp e transmitir confiança ao cliente.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/5541992274453" class="btn btn-primary">Chamar no WhatsApp</a>
+            <a href="#servicos" class="btn btn-outline">Ver Serviços</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>+500</strong>
+              <span>Atendimentos realizados</span>
+            </div>
+            <div class="stat">
+              <strong>24h</strong>
+              <span>Resposta rápida</span>
+            </div>
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Foco na satisfação</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-image"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <h2 class="section-title">Serviços oferecidos</h2>
+        <p class="section-subtitle">
+          Estrutura ideal para destacar os principais serviços da empresa e facilitar o fechamento pelo WhatsApp.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">01</div>
+            <h3>Instalação</h3>
+            <p>Instalação com acabamento profissional, segurança e desempenho para residências e empresas.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Manutenção Preventiva</h3>
+            <p>Reduza falhas, aumente a vida útil dos equipamentos e mantenha o sistema funcionando melhor.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">03</div>
+            <h3>Assistência Técnica</h3>
+            <p>Diagnóstico preciso, atendimento técnico especializado e solução rápida para o cliente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container about-grid">
+        <div class="about-image"></div>
+        <div>
+          <h2 class="section-title">Profissionalismo que gera confiança</h2>
+          <p class="section-subtitle">
+            Esse modelo foi feito para empresas que precisam de uma presença digital forte, moderna e com aparência premium.
+          </p>
+
+          <ul class="list">
+            <li>✅ Design moderno e responsivo</li>
+            <li>✅ Botão direto para WhatsApp</li>
+            <li>✅ Estrutura para Google e SEO local</li>
+            <li>✅ Layout pensado para conversão</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferenciais">
+      <div class="container">
+        <h2 class="section-title">Por que escolher nossa empresa</h2>
+        <p class="section-subtitle">
+          Seção perfeita para quebrar objeções e valorizar o serviço.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">A</div>
+            <h3>Equipe especializada</h3>
+            <p>Atendimento técnico qualificado, com foco em qualidade e agilidade.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">B</div>
+            <h3>Atendimento humanizado</h3>
+            <p>Comunicação clara, suporte rápido e compromisso com o cliente.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">C</div>
+            <h3>Compromisso com resultado</h3>
+            <p>Mais confiança, mais contatos e uma presença digital mais forte para sua empresa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2 class="section-title" style="margin-bottom:8px">Solicite um orçamento agora</h2>
+            <p class="section-subtitle" style="margin:0">
+              Um site como esse pode ser adaptado rapidamente para qualquer empresa de serviços.
+            </p>
+          </div>
+          <a href="https://wa.me/5541992274453" class="btn btn-primary">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="localizacao">
+      <div class="container">
+        <h2 class="section-title">Nossa localização</h2>
+        <p class="section-subtitle">Você pode trocar esse mapa pelo endereço do seu cliente.</p>
+
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps?q=Joinville%20SC&output=embed"
+            width="100%"
+            height="350"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 RM ClimaPro - Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/5541992274453" aria-label="WhatsApp">✆</a>
+
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('menu');
+
+    mobileToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
