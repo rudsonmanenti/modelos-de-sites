@@ -1,46 +1,47 @@
-/* filtro de produtos */
+const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
 
-const botoes=document.querySelectorAll(".filtros button")
-const itens=document.querySelectorAll(".item")
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
 
-botoes.forEach(btn=>{
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
 
-btn.addEventListener("click",()=>{
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-const filtro=btn.dataset.filter
+        const filter = button.getAttribute('data-filter');
 
-itens.forEach(item=>{
+        productCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || filter === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
 
-if(filtro==="all"||item.classList.contains(filtro)){
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
-item.style.display="block"
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
 
-}else{
-
-item.style.display="none"
-
-}
-
-})
-
-})
-
-})
-
-/* animação no scroll */
-
-window.addEventListener("scroll",()=>{
-
-const header=document.getElementById("header")
-
-if(window.scrollY>50){
-
-header.style.background="#000"
-
-}else{
-
-header.style.background="rgba(0,0,0,0.4)"
-
-}
-
-})
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });

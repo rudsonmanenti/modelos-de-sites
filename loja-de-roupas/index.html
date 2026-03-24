@@ -1,407 +1,391 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RM Modas | Estilo e Elegância</title>
-  <meta name="description" content="Moda feminina e masculina com estilo, qualidade e atendimento direto pelo WhatsApp.">
-  <style>
-    :root{
-      --bg:#0f0f12;
-      --bg-soft:#18181d;
-      --card:#1d1d24;
-      --line:rgba(255,255,255,.08);
-      --text:#ffffff;
-      --muted:#b2b2bf;
-      --primary:#ff4d6d;
-      --primary-2:#ff8fa3;
-      --radius:22px;
-      --max:1200px;
-      --shadow:0 22px 50px rgba(0,0,0,.35);
-    }
-
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:linear-gradient(180deg, #0e0e12, #09090b);
-      color:var(--text);
-      line-height:1.6;
-    }
-
-    a{text-decoration:none;color:inherit}
-    .container{width:min(92%,var(--max));margin:0 auto}
-    img{max-width:100%;display:block}
-
-    .header{
-      position:sticky;top:0;z-index:1000;
-      background:rgba(15,15,18,.78);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--line);
-    }
-
-    .nav{
-      min-height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .logo{
-      font-size:1.35rem;
-      font-weight:800;
-      letter-spacing:1px;
-    }
-    .logo span{color:var(--primary)}
-
-    .menu{display:flex;gap:22px;align-items:center}
-    .menu a{color:var(--muted);font-weight:600}
-    .menu a:hover{color:#fff}
-
-    .btn{
-      padding:14px 22px;
-      border-radius:999px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      transition:.3s ease;
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,var(--primary),var(--primary-2));
-      color:#22040c;
-      box-shadow:0 12px 30px rgba(255,77,109,.28);
-    }
-
-    .hero{
-      padding:90px 0 70px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:34px;
-      align-items:center;
-    }
-
-    .hero h1{
-      font-size:clamp(2.4rem,5vw,4.8rem);
-      line-height:1.02;
-      margin-bottom:18px;
-    }
-
-    .hero p{
-      color:var(--muted);
-      font-size:1.05rem;
-      margin-bottom:28px;
-      max-width:620px;
-    }
-
-    .hero-image{
-      min-height:500px;
-      border-radius:30px;
-      background:
-        linear-gradient(rgba(14,14,18,.2), rgba(14,14,18,.55)),
-        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80') center/cover;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-    }
-
-    section{padding:80px 0}
-    .section-title{
-      font-size:clamp(1.8rem,3vw,3rem);
-      margin-bottom:10px;
-    }
-    .section-subtitle{
-      color:var(--muted);
-      margin-bottom:30px;
-      max-width:700px;
-    }
-
-    .features{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
-    }
-
-    .feature,.product,.cta,.about-box{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-
-    .feature{
-      padding:24px;
-    }
-
-    .feature h3{margin-bottom:10px}
-    .feature p{color:var(--muted)}
-
-    .products{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
-    }
-
-    .product-image{
-      height:290px;
-      border-top-left-radius:22px;
-      border-top-right-radius:22px;
-      background-size:cover;
-      background-position:center;
-    }
-
-    .product-content{
-      padding:20px;
-    }
-
-    .tag{
-      display:inline-block;
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(255,77,109,.12);
-      color:#ff9aae;
-      font-size:.88rem;
-      margin-bottom:10px;
-    }
-
-    .price{
-      margin:10px 0 16px;
-      font-size:1.25rem;
-      font-weight:800;
-      color:#fff;
-    }
-
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      align-items:center;
-    }
-
-    .about-photo{
-      min-height:420px;
-      border-radius:26px;
-      background:
-        linear-gradient(rgba(10,10,14,.25), rgba(10,10,14,.55)),
-        url('https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=80') center/cover;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-    }
-
-    .about-box{
-      padding:28px;
-    }
-
-    .about-box ul{
-      margin-top:18px;
-      display:grid;
-      gap:12px;
-      list-style:none;
-    }
-
-    .about-box li{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      padding:14px 16px;
-      border-radius:16px;
-      color:#e8e8ef;
-    }
-
-    .cta{
-      padding:34px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-      background:linear-gradient(135deg, rgba(255,77,109,.12), rgba(255,143,163,.06));
-    }
-
-    .footer{
-      padding:26px 0;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-    }
-
-    .whatsapp{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      width:64px;height:64px;border-radius:50%;
-      background:#25D366;color:#fff;
-      display:grid;place-items:center;
-      font-size:28px;font-weight:700;
-      box-shadow:0 16px 35px rgba(37,211,102,.35);
-      z-index:999;
-    }
-
-    .mobile-toggle{
-      display:none;
-      background:none;border:none;color:#fff;
-      font-size:1.8rem;cursor:pointer;
-    }
-
-    @media (max-width: 980px){
-      .hero-grid,.about,.features,.products{grid-template-columns:1fr}
-      .hero-image{min-height:360px}
-    }
-
-    @media (max-width: 768px){
-      .mobile-toggle{display:block}
-      .menu{
-        display:none;
-        position:absolute;
-        top:78px;left:0;right:0;
-        padding:20px;
-        flex-direction:column;
-        align-items:flex-start;
-        background:#14141a;
-        border-bottom:1px solid var(--line);
-      }
-      .menu.active{display:flex}
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elegance Store | Moda e Acessórios</title>
+  <meta name="description" content="Loja modelo para roupas e acessórios com visual moderno, elegante e responsivo." />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container nav">
-      <a href="#" class="logo">RM <span>Modas</span></a>
-      <button class="mobile-toggle" id="mobileToggle">☰</button>
-      <nav class="menu" id="menu">
-        <a href="#colecao">Coleção</a>
-        <a href="#destaques">Destaques</a>
-        <a href="#sobre">Sobre</a>
-        <a href="https://wa.me/5541992274453" class="btn btn-primary">Comprar pelo WhatsApp</a>
+  <header class="topbar">
+    <div class="container">
+      <nav class="nav" id="nav">
+        <a href="#inicio" class="logo">LUXE<span>MODE</span></a>
+
+        <ul class="nav-links">
+          <li><a href="#inicio" class="active">Início</a></li>
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#destaques">Destaques</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+
+        <a href="#contato" class="nav-cta">Comprar pelo WhatsApp</a>
+        <button class="menu-toggle" id="menuToggle">Menu</button>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h1>Moda moderna para quem quer se destacar com estilo</h1>
-          <p>
-            Modelo premium ideal para lojas de roupas, boutiques e marcas locais.
-            Estrutura pronta para apresentar coleções e vender diretamente pelo WhatsApp.
-          </p>
-          <a href="https://wa.me/5541992274453" class="btn btn-primary">Solicitar catálogo</a>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Nova coleção • Moda feminina, masculina e acessórios</div>
+            <h1>Loja modelo para roupas e acessórios com visual premium</h1>
+            <p>
+              Um site elegante para apresentar coleções, destacar produtos, vender pelo WhatsApp e transmitir mais valor para sua marca. Ideal para boutiques, lojas de moda e lojas de acessórios.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#produtos" class="btn btn-primary">Ver coleção</a>
+              <a href="#sobre" class="btn btn-outline">Conhecer a marca</a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>+150</strong>
+                <span>Produtos em destaque</span>
+              </div>
+              <div class="stat">
+                <strong>Moda</strong>
+                <span>Roupas e acessórios</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Responsivo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1200&q=80" alt="Modelo vestindo roupas elegantes em loja de moda" />
+          </div>
         </div>
-        <div class="hero-image"></div>
+      </div>
+    </section>
+
+    <section id="categorias">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Categorias em destaque</h2>
+            <p>Organize sua loja em seções bonitas e fáceis de navegar para valorizar os produtos e facilitar o atendimento.</p>
+          </div>
+        </div>
+
+        <div class="categories">
+          <article class="category-card">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80" alt="Moda feminina" />
+            <div class="category-content">
+              <h3>Moda Feminina</h3>
+              <p>Vestidos, conjuntos, blusas e peças com estilo moderno e sofisticado.</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80" alt="Moda masculina" />
+            <div class="category-content">
+              <h3>Moda Masculina</h3>
+              <p>Camisetas, polos, calças e looks versáteis para o dia a dia e ocasiões especiais.</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="https://images.unsplash.com/photo-1506152983158-b4a74a01c721?auto=format&fit=crop&w=1200&q=80" alt="Bolsas e acessórios" />
+            <div class="category-content">
+              <h3>Bolsas & Acessórios</h3>
+              <p>Bolsas, carteiras, óculos e peças que elevam a composição do visual.</p>
+            </div>
+          </article>
+
+          <article class="category-card">
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80" alt="Relógios e acessórios" />
+            <div class="category-content">
+              <h3>Relógios & Joias</h3>
+              <p>Modelos elegantes para quem busca presença, estilo e acabamento premium.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Produtos selecionados</h2>
+            <p>Exiba seus itens mais vendidos com preço, categoria e botão para atendimento direto.</p>
+          </div>
+        </div>
+
+        <div class="products-toolbar">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="feminino">Feminino</button>
+          <button class="filter-btn" data-filter="masculino">Masculino</button>
+          <button class="filter-btn" data-filter="acessorios">Acessórios</button>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card" data-category="feminino">
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="Vestido elegante" />
+            <div class="product-content">
+              <span class="tag">Feminino</span>
+              <h3>Vestido Elegance</h3>
+              <p>Peça leve e sofisticada para eventos, ensaios e ocasiões especiais.</p>
+              <div class="price-row">
+                <span class="price">R$ 189,90</span>
+                <a href="#contato" class="btn btn-outline">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="masculino">
+            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=1200&q=80" alt="Camisa masculina premium" />
+            <div class="product-content">
+              <span class="tag">Masculino</span>
+              <h3>Camisa Premium</h3>
+              <p>Visual refinado para um estilo moderno, alinhado e versátil.</p>
+              <div class="price-row">
+                <span class="price">R$ 149,90</span>
+                <a href="#contato" class="btn btn-outline">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="acessorios">
+            <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?auto=format&fit=crop&w=1200&q=80" alt="Bolsa feminina" />
+            <div class="product-content">
+              <span class="tag">Acessórios</span>
+              <h3>Bolsa Urban Chic</h3>
+              <p>Modelo moderno com acabamento elegante para destacar qualquer look.</p>
+              <div class="price-row">
+                <span class="price">R$ 219,90</span>
+                <a href="#contato" class="btn btn-outline">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="acessorios">
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80" alt="Relógio sofisticado" />
+            <div class="product-content">
+              <span class="tag">Acessórios</span>
+              <h3>Relógio Classic</h3>
+              <p>Design marcante para compor um estilo mais premium e atual.</p>
+              <div class="price-row">
+                <span class="price">R$ 299,90</span>
+                <a href="#contato" class="btn btn-outline">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="feminino">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" alt="Conjunto feminino" />
+            <div class="product-content">
+              <span class="tag">Feminino</span>
+              <h3>Conjunto Soft Nude</h3>
+              <p>Minimalista, moderno e perfeito para uma proposta elegante.</p>
+              <div class="price-row">
+                <span class="price">R$ 169,90</span>
+                <a href="#contato" class="btn btn-outline">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="masculino">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" alt="Jaqueta masculina" />
+            <div class="product-content">
+              <span class="tag">Masculino</span>
+              <h3>Jaqueta Urban Fit</h3>
+              <p>Modelo com presença visual forte, ideal para uma vitrine premium.</p>
+              <div class="price-row">
+                <span class="price">R$ 239,90</span>
+                <a href="#contato" class="btn btn-outline">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="acessorios">
+            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80" alt="Óculos de sol" />
+            <div class="product-content">
+              <span class="tag">Acessórios</span>
+              <h3>Óculos Style Vision</h3>
+              <p>Peça de destaque para elevar a proposta visual da coleção.</p>
+              <div class="price-row">
+                <span class="price">R$ 119,90</span>
+                <a href="#contato" class="btn btn-outline">Pedir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="feminino">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80" alt="Blazer feminino" />
+            <div class="product-content">
+              <span class="tag">Feminino</span>
+              <h3>Blazer Signature</h3>
+              <p>Estrutura refinada com acabamento ideal para looks elegantes.</p>
+              <div class="price-row">
+                <span class="price">R$ 209,90</span>
+                <a href="#contato" class="btn btn-outline">Pedir</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="destaques">
       <div class="container">
-        <h2 class="section-title">Diferenciais da marca</h2>
-        <p class="section-subtitle">Use essa seção para valorizar a loja e gerar desejo no cliente.</p>
-
-        <div class="features">
-          <article class="feature">
-            <h3>Peças selecionadas</h3>
-            <p>Produtos com qualidade, caimento e estilo para diferentes ocasiões.</p>
-          </article>
-          <article class="feature">
-            <h3>Atendimento personalizado</h3>
-            <p>Venda direta pelo WhatsApp com suporte rápido e humanizado.</p>
-          </article>
-          <article class="feature">
-            <h3>Tendências da estação</h3>
-            <p>Loja sempre atualizada com peças modernas e elegantes.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="colecao">
-      <div class="container">
-        <h2 class="section-title">Coleção em destaque</h2>
-        <p class="section-subtitle">Troque as imagens e os nomes pelas peças do seu cliente.</p>
-
-        <div class="products">
-          <article class="product">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="product-content">
-              <span class="tag">Novidade</span>
-              <h3>Jaqueta Premium</h3>
-              <p>Visual moderno e acabamento de alta qualidade.</p>
-              <div class="price">R$ 189,90</div>
-              <a href="https://wa.me/5541992274453" class="btn btn-primary">Pedir no WhatsApp</a>
+        <div class="banner">
+          <div class="banner-grid">
+            <div>
+              <h3>Nova coleção com peças selecionadas para uma vitrine irresistível</h3>
+              <p>Use essa área para divulgar promoções, lançamento de coleção, condições especiais ou chamadas para atendimento imediato pelo WhatsApp.</p>
             </div>
-          </article>
-
-          <article class="product">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="product-content">
-              <span class="tag">Mais vendido</span>
-              <h3>Vestido Elegance</h3>
-              <p>Peça leve, sofisticada e perfeita para várias ocasiões.</p>
-              <div class="price">R$ 159,90</div>
-              <a href="https://wa.me/5541992274453" class="btn btn-primary">Pedir no WhatsApp</a>
-            </div>
-          </article>
-
-          <article class="product">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80')"></div>
-            <div class="product-content">
-              <span class="tag">Tendência</span>
-              <h3>Conjunto Urbano</h3>
-              <p>Estilo contemporâneo para um visual marcante.</p>
-              <div class="price">R$ 219,90</div>
-              <a href="https://wa.me/5541992274453" class="btn btn-primary">Pedir no WhatsApp</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="sobre">
-      <div class="container about">
-        <div class="about-photo"></div>
-        <div class="about-box">
-          <h2 class="section-title">Uma loja com identidade forte</h2>
-          <p class="section-subtitle">
-            Esse site foi pensado para lojas que precisam transmitir estilo, confiança e modernidade.
-          </p>
-          <ul>
-            <li>✅ Design premium e elegante</li>
-            <li>✅ Catálogo visual de produtos</li>
-            <li>✅ Botões diretos para o WhatsApp</li>
-            <li>✅ Estrutura perfeita para vender mais</li>
-          </ul>
+            <a href="#contato" class="btn btn-primary">Quero atendimento</a>
+          </div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <div class="cta">
+        <div class="section-head">
           <div>
-            <h2 class="section-title" style="margin-bottom:8px">Sua loja merece um site assim</h2>
-            <p class="section-subtitle" style="margin:0">Visual premium, organização profissional e foco em conversão.</p>
+            <h2>Por que esse modelo vende bem</h2>
+            <p>Estrutura pensada para apresentar a marca, valorizar os produtos e facilitar o contato rápido com o cliente.</p>
           </div>
-          <a href="https://wa.me/5541992274453" class="btn btn-primary">Falar com a loja</a>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">✦</div>
+            <h3>Visual premium</h3>
+            <p>Design sofisticado com cara de marca forte, transmitindo mais confiança e valor percebido.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">🛍</div>
+            <h3>Vitrine organizada</h3>
+            <p>Produtos em destaque com categorias, descrição e preço para facilitar a decisão do cliente.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Contato rápido</h3>
+            <p>Botões estratégicos e atalho flutuante para o WhatsApp aumentando a chance de conversão.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-box">
+            <span class="tag">Sobre a marca</span>
+            <h2 style="margin-bottom: 16px; font-size: clamp(1.8rem, 3vw, 2.8rem);">Moda que transmite estilo, personalidade e presença</h2>
+            <p>
+              Este modelo foi criado para lojas que desejam passar uma imagem profissional, elegante e atual. Você pode adaptar facilmente para sua marca, trocar fotos, alterar cores, editar categorias e inserir seus próprios produtos.
+            </p>
+            <ul class="about-list">
+              <li>Ideal para roupas femininas, masculinas e acessórios</li>
+              <li>Estrutura pronta para catálogo e atendimento pelo WhatsApp</li>
+              <li>Layout responsivo para celular, tablet e computador</li>
+            </ul>
+          </div>
+
+          <div class="about-box">
+            <span class="tag">Diferenciais</span>
+            <h2 style="margin-bottom: 16px; font-size: clamp(1.8rem, 3vw, 2.8rem);">Site pensado para causar impacto visual</h2>
+            <p>
+              Um bom site não precisa ser poluído para impressionar. Aqui o foco está em organização, estética refinada e experiência agradável para destacar sua coleção e facilitar o fechamento de vendas.
+            </p>
+            <ul class="about-list">
+              <li>Hero principal forte para apresentar a coleção</li>
+              <li>Seções estratégicas para aumentar valor da marca</li>
+              <li>Filtro de produtos para navegação mais profissional</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>O que os clientes sentem ao entrar no site</h2>
+            <p>Use depoimentos para reforçar confiança, desejo e percepção de qualidade da loja.</p>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial">
+            <h3>“Visual elegante e produtos muito bem apresentados.”</h3>
+            <p>Esse tipo de estrutura transmite confiança e faz a marca parecer muito mais profissional.</p>
+          </article>
+
+          <article class="testimonial">
+            <h3>“Fácil de navegar e ótimo para comprar pelo WhatsApp.”</h3>
+            <p>O cliente encontra rápido o que precisa e entra em contato sem dificuldade.</p>
+          </article>
+
+          <article class="testimonial">
+            <h3>“Parece site de loja grande.”</h3>
+            <p>O design premium aumenta o valor percebido e ajuda a justificar preços melhores.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-card">
+            <span class="tag">Contato</span>
+            <h3>Pronto para personalizar este modelo para sua loja?</h3>
+            <p>
+              Troque o nome da marca, ajuste as fotos, edite os preços e conecte o botão ao seu número de WhatsApp para começar a usar.
+            </p>
+            <div class="contact-info">
+              <div><strong>WhatsApp:</strong> (41) 99999-9999</div>
+              <div><strong>Instagram:</strong> @sualoja</div>
+              <div><strong>Endereço:</strong> Rua Exemplo, 123 - Centro</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <h3>Atendimento rápido</h3>
+            <p>
+              Clique no botão abaixo para simular um atendimento direto. Esse espaço também pode virar formulário, mapa, horário de funcionamento ou bloco de redes sociais.
+            </p>
+            <div style="margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://wa.me/5541999999999" class="btn btn-primary" target="_blank">Chamar no WhatsApp</a>
+              <a href="#inicio" class="btn btn-outline">Voltar ao topo</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">© 2026 RM Modas - Todos os direitos reservados.</div>
+  <footer>
+    <div class="container">
+      <div class="footer-wrap">
+        <div>
+          <div class="logo">LUXE<span>MODE</span></div>
+          <p style="margin-top: 8px;">Site modelo para loja de roupas e acessórios.</p>
+        </div>
+        <p>© 2026 • Todos os direitos reservados</p>
+      </div>
+    </div>
   </footer>
 
-  <a class="whatsapp" href="https://wa.me/5541992274453">✆</a>
+  <a class="whatsapp-float" href="https://wa.me/5541999999999" target="_blank" aria-label="Chamar no WhatsApp">✆</a>
 
-  <script>
-    const mobileToggle = document.getElementById('mobileToggle');
-    const menu = document.getElementById('menu');
-
-    mobileToggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
